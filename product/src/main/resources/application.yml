@@ -5,6 +5,17 @@ spring:
   application:
     name: product
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+      circuitBreaker:
+        requestVolumeThreshold: 1
+        errorThresholdPercentage: 50
+
 eureka:
   instance:
     prefer-ip-address: true
